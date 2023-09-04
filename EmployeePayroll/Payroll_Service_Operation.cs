@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Payroll_Service_ADO_database
 {
-    //UC-1
+  
     public class Payroll_Service_Operation
     {
         public static void CreateDatabase()
@@ -32,14 +32,12 @@ namespace Payroll_Service_ADO_database
         }
         public static SqlConnection connection = new SqlConnection("data source= (localdb)\\MSSQLLocalDB; initial catalog=Payroll_Service_ADO; integrated security=true");
 
-        //UC2 create table
         public static void CreateTable()
         {
             try
             {
                 string query = "Create table employee_payroll(\r\nid int primary key identity(1,1),\r\nname varchar(30),\r\nsalary varchar(30),\r\nstart_date date);";
                 SqlCommand cmd = new SqlCommand(query, connection);
-                // CommandType type = CommandType.Text;
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Table  Created Suucessfully");
@@ -54,7 +52,6 @@ namespace Payroll_Service_ADO_database
             }
         }
 
-        //UC3- Insert
         public static void InsertDatebase()
         {
             try
@@ -74,7 +71,6 @@ namespace Payroll_Service_ADO_database
                 connection.Close();
             }
         }
-        //UC4-ReAD
         public static bool ReadFromDatabase()
         {
             try
@@ -114,7 +110,6 @@ namespace Payroll_Service_ADO_database
             }
             return false;
         }
-        //UC5- Retrive between date
         public static void RetriveBetweenDatebase()
         {
             try

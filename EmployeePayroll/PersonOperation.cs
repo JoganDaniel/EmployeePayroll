@@ -100,7 +100,6 @@ namespace Payroll_Service_ADO_database
             {
                 string query = "Delete from Person where id=2";
                 SqlCommand cmd = new SqlCommand(query, con);
-               // CommandType type = CommandType.Text;
                 con.Open();
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Date Deleted Suucessfully");
@@ -120,7 +119,6 @@ namespace Payroll_Service_ADO_database
             {
                 string query = "create table Demo(\r\nid int primary key identity(1,1),\r\nname varchar(max),\r\nsalary bigint,\r\naddress varchar(max),\r\nphonenumber varchar(10)\r\n);";
                 SqlCommand cmd = new SqlCommand(query, con);
-                // CommandType type = CommandType.Text;
                 con.Open();
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Table  Created Suucessfully");

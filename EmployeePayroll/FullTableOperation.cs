@@ -11,13 +11,11 @@ namespace Payroll_Service_ADO_database
     public class FullTableOperation
     {
         private SqlConnection con;
-        //To Handle connection related activities    
         private void connection()
         {
             string connectionStr = "data source = (localdb)\\MSSQLLocalDB; initial catalog=payroll_service;integrated security = true ";
             con = new SqlConnection(connectionStr);
         }
-        //To Add Employee details    
         public bool AddEmployee(FullTableModel obj)
         {
             try
@@ -38,7 +36,7 @@ namespace Payroll_Service_ADO_database
                 com.Parameters.AddWithValue("@Income_Tax", obj.Income_tax);
                 com.Parameters.AddWithValue("@Net_pay", obj.Net_pay);
                 con.Open();
-                int i = com.ExecuteNonQuery(); //Execute and return the num of records added
+                int i = com.ExecuteNonQuery(); 
                 con.Close();
                 if (i != 0)
                 {
@@ -179,7 +177,6 @@ namespace Payroll_Service_ADO_database
                 com.Parameters.AddWithValue("@Income_Tax", obj.Income_tax);
                 com.Parameters.AddWithValue("@Net_pay", obj.Net_pay);
                 con.Open();
-              //  string data =com.ExecuteScalar().ToString();
                 string data1 = Convert.ToString(com.ExecuteScalar());
                 obj.id = (int)com.ExecuteScalar();
                 return obj;
@@ -199,7 +196,6 @@ namespace Payroll_Service_ADO_database
         {
             try
             {
-                // EmployeeOperation employeeDataAccess = new EmployeeOperation(); // Replace with your actual class name
 
                 List<FullTableModel> employees = GetAllEmployeeDetails();
 
