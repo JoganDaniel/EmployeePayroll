@@ -11,13 +11,11 @@ namespace Payroll_Service_ADO_database
     public class EmployeeOperation
     {
         private SqlConnection con;
-        //To Handle connection related activities    
         private void connection()
         {
             string connectionStr = "data source = (localdb)\\MSSQLLocalDB; initial catalog=EmployeeManagement;integrated security = true ";
             con = new SqlConnection(connectionStr);
         }
-        //To Add Employee details    
         public bool AddEmployee(Employee obj)
         {
             try
@@ -52,7 +50,6 @@ namespace Payroll_Service_ADO_database
 
         }
 
-        //To Update Employee details    
         public bool UpdateEmployee(Employee obj)
         {
             try
@@ -87,7 +84,6 @@ namespace Payroll_Service_ADO_database
                 con.Close();
             }
         }
-        //To view employee details with generic list     
         public List<Employee> GetAllEmployees()
         {
             try
@@ -104,7 +100,6 @@ namespace Payroll_Service_ADO_database
                 con.Open();
                 da.Fill(dt);
                 con.Close();
-                //Bind EmpModel generic list using dataRow     
                 foreach (DataRow dr in dt.Rows)
                 {
 
@@ -175,7 +170,6 @@ namespace Payroll_Service_ADO_database
         {
             try
             {
-                // EmployeeOperation employeeDataAccess = new EmployeeOperation(); // Replace with your actual class name
 
                 List<Employee> employees = GetAllEmployees();
 
